@@ -2,6 +2,7 @@ define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
     var Actions = require("ratchet/actions");
+    const OneTeam = require("oneteam");
 
     return Actions.register("move-up", Ratchet.AbstractAction.extend({
 
@@ -30,8 +31,12 @@ define(function(require, exports, module) {
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
                         console.log(actionContext);
-                        this.updateNode(rows[i]);
-                        this.updateNode(rows[i - 1]);
+                        OneTeam.projectBranch(actionContext, function () {
+                            this.updateNode(rows[i]);
+                        });
+                        OneTeam.projectBranch(actionContext, function () {
+                            this.updateNode(rows[i - 1]);
+                        });
                         console.log('Moved up ' + rowId);
                     } else {
                         alert ('Item is first already');
