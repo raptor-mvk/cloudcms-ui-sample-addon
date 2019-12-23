@@ -26,7 +26,7 @@ define(function(require, exports, module) {
 
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].id === rowId) {
-                    console.log(rows[i].id);
+                    console.log(rows[i].sort_order);
                     if (i > 0) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
