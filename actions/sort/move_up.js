@@ -22,17 +22,16 @@ define(function(require, exports, module) {
                 alert('No item is selected');
             }
             let rowId = actionContext.selectedItems[0].id;
-            console.log(rowId);
 
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].id === rowId) {
-                    console.log(rows[i].sort_order);
                     if (i > 0) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
-                        console.log(rows[i]);
-                        console.log(rows[i-1]);
+                        this.updateNode(rows[i]);
+                        this.updateNode(rows[i - 1]);
+                        console.log('Moved up ' + rowId)
                     } else {
                         alert ('Item is first already');
                     }
