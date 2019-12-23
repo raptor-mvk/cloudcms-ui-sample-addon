@@ -32,6 +32,7 @@ define(function(require, exports, module) {
                         rows[i - 1].sort_order = sort_order;
                         console.log(actionContext);
                         OneTeam.projectBranch(actionContext, function () {
+                            console.log(this);
                             this.updateNode(rows[i]);
                         });
                         OneTeam.projectBranch(actionContext, function () {
