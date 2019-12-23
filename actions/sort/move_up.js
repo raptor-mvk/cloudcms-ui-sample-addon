@@ -27,13 +27,8 @@ define(function(require, exports, module) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
-                        OneTeam.projectBranch(actionContext, function () {
-                            console.log(this);
-                            this.updateNode(rows[i]);
-                        });
-                        OneTeam.projectBranch(actionContext, function () {
-                            this.updateNode(rows[i - 1]);
-                        });
+                        rows[i].update();
+                        rows[i - 1].update();
                         console.log('Moved up ' + rowId);
                     } else {
                         alert ('Item is first already');
