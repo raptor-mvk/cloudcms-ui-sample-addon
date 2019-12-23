@@ -26,7 +26,7 @@ define(function(require, exports, module) {
 
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].id === rowId) {
-                    console.log('cycle :' + rows[i].id);
+                    console.log(rows[i].id);
                     if (i > 0) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
@@ -36,6 +36,7 @@ define(function(require, exports, module) {
                     } else {
                         alert ('Item is first already');
                     }
+                    break;
                 }
             }
         }
