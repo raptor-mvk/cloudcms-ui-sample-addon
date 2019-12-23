@@ -18,7 +18,10 @@ define(function(require, exports, module) {
 
         execute: function(config, actionContext, callback)
         {
-            console.log($('.list-button-sort-selector').text());
+            if ($('.list-button-sort-selector').text() !== 'Sort order...') {
+                alert('List should be sorted by sort order to use arrows');
+                return;
+            }
             let rows = actionContext.model.rows;
             let rowId = actionContext.selectedId;
 
