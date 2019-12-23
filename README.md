@@ -31,7 +31,7 @@ that name.  A default folder structure is built out.  This effectively lets you 
 with only a single click.
 
 The action code is here:
-    /sample/actions/sample/create-sample-space.js
+    /sample/actions/sample/move_up.js
 
 The action is configured into the documents list page here:
     /sample/config/sample/blocks/default/documents-list-buttons/folder.json
