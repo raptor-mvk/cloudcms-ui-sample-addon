@@ -18,6 +18,7 @@ define(function(require, exports, module) {
 
         execute: function(config, actionContext, callback)
         {
+            console.log($('.list-button-sort-selector').text());
             let rows = actionContext.model.rows;
             let rowId = actionContext.selectedId;
 
