@@ -18,7 +18,7 @@ define(function(require, exports, module) {
 
         execute: function(config, actionContext, callback)
         {
-            if ($('.list-button-sort-selector').text() !== 'Sort order...') {
+            if ($('.list-button-sort-selector').text().trim() !== 'Sort order...') {
                 alert('List should be sorted by sort order to use arrows');
                 return;
             }
