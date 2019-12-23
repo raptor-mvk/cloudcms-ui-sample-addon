@@ -2,6 +2,7 @@ define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
     var Actions = require("ratchet/actions");
+    const $ = require("jquery");
 
     return Actions.register("move-down", Ratchet.AbstractAction.extend({
 
@@ -18,10 +19,7 @@ define(function(require, exports, module) {
         execute: function(config, actionContext, callback)
         {
             let rows = actionContext.model.rows;
-            if (actionContext.selectedItems.length === 0) {
-                alert('No item is selected');
-            }
-            let rowId = actionContext.selectedItems[0].id;
+            let rowId = actionContext.selectedId;
 
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].id === rowId) {
@@ -29,9 +27,14 @@ define(function(require, exports, module) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i + 1].sort_order;
                         rows[i + 1].sort_order = sort_order;
+                        rows[i].update();
+                        rows[i + 1].update();
+                        $('.list-button-sort-field-sort_order').click();
+                        console.log('Moved down ' + rowId);
                     } else {
                         alert ('Item is last already');
                     }
+                    break;
                 }
             }
         }

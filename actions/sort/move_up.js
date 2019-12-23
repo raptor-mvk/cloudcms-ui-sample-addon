@@ -2,7 +2,7 @@ define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
     var Actions = require("ratchet/actions");
-    const OneTeam = require("oneteam");
+    const $ = require("jquery");
 
     return Actions.register("move-up", Ratchet.AbstractAction.extend({
 
@@ -29,6 +29,7 @@ define(function(require, exports, module) {
                         rows[i - 1].sort_order = sort_order;
                         rows[i].update();
                         rows[i - 1].update();
+                        $('.list-button-sort-field-sort_order').click();
                         console.log('Moved up ' + rowId);
                     } else {
                         alert ('Item is first already');
