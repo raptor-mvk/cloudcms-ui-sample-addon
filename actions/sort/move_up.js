@@ -29,9 +29,10 @@ define(function(require, exports, module) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
+                        console.log(actionContext);
                         this.updateNode(rows[i]);
                         this.updateNode(rows[i - 1]);
-                        console.log('Moved up ' + rowId)
+                        console.log('Moved up ' + rowId);
                     } else {
                         alert ('Item is first already');
                     }
