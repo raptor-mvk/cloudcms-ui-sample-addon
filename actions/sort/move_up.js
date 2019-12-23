@@ -27,8 +27,8 @@ define(function(require, exports, module) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
-                        console.log(OneTeam);
                         OneTeam.projectBranch(actionContext, function () {
+                            console.log(this);
                             this.updateNode(rows[i]);
                         });
                         OneTeam.projectBranch(actionContext, function () {
