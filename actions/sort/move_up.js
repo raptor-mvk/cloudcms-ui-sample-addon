@@ -2,31 +2,38 @@ define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
     var Actions = require("ratchet/actions");
-    var $ = require("jquery");
 
-    var OneTeam = require("oneteam");
-
-    return Actions.register("move-up", Ratchet.AbstractAction.extend({
+    return Actions.register("move-down", Ratchet.AbstractAction.extend({
 
         defaultConfiguration: function()
         {
             var config = this.base();
 
-            config.title = "Move up";
-            config.iconClass = "fas fa-arrow-up";
+            config.title = "Move down";
+            config.iconClass = "fa fa-arrow-down";
 
             return config;
         },
 
         execute: function(config, actionContext, callback)
         {
-            var self = this;
-            var ratchet = actionContext.ratchet;
+            let rows = actionContext.model.rows;
+            if (actionContext.selectedItems.length === 0) {
+                alert('No item is selected');
+            }
+            let rowId = actionContext.selectedItems[0].id;
 
-            var project = actionContext.observable("project").get();
-            var document = actionContext.observable("document").get();
-
-            console.log(actionContext);
+            for (let i = 0; i < rows.length; i++) {
+                if (rows[i].id === rowId) {
+                    if (i > 0) {
+                        let sort_order = rows[i].sort_order;
+                        rows[i].sort_order = rows[i - 1].sort_order;
+                        rows[i - 1].sort_order = sort_order;
+                    } else {
+                        alert ('Item is first already');
+                    }
+                }
+            }
         }
 
     }));
