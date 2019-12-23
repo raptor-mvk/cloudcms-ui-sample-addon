@@ -6,7 +6,7 @@ define(function(require, exports, module) {
 
     var OneTeam = require("oneteam");
 
-    return Actions.register("move-up", Ratchet.AbstractAction.extend({
+    return Actions.register("move-down", Ratchet.AbstractAction.extend({
 
         defaultConfiguration: function()
         {
