@@ -3,14 +3,14 @@ define(function(require, exports, module) {
     var Ratchet = require("ratchet/web");
     var Actions = require("ratchet/actions");
 
-    return Actions.register("move-down", Ratchet.AbstractAction.extend({
+    return Actions.register("move-up", Ratchet.AbstractAction.extend({
 
         defaultConfiguration: function()
         {
             var config = this.base();
 
-            config.title = "Move down";
-            config.iconClass = "fa fa-arrow-down";
+            config.title = "Move up";
+            config.iconClass = "fa fa-arrow-up";
 
             return config;
         },
