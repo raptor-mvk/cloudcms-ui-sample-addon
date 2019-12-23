@@ -19,10 +19,7 @@ define(function(require, exports, module) {
         execute: function(config, actionContext, callback)
         {
             let rows = actionContext.model.rows;
-            if (actionContext.selectedItems.length === 0) {
-                alert('No item is selected');
-            }
-            let rowId = actionContext.selectedItems[0].id;
+            let rowId = actionContext.selectedId;
 
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].id === rowId) {
@@ -30,9 +27,8 @@ define(function(require, exports, module) {
                         let sort_order = rows[i].sort_order;
                         rows[i].sort_order = rows[i - 1].sort_order;
                         rows[i - 1].sort_order = sort_order;
-                        console.log(actionContext);
+                        console.log(OneTeam);
                         OneTeam.projectBranch(actionContext, function () {
-                            console.log(this);
                             this.updateNode(rows[i]);
                         });
                         OneTeam.projectBranch(actionContext, function () {
