@@ -22,6 +22,8 @@ define(function(require, exports, module) {
                 alert('List should be sorted by sort order to use arrows');
                 return;
             }
+            console.log($('select[name=DataTables_Table_1_length]'));
+
             let rows = actionContext.model.rows;
             let rowId = actionContext.selectedId;
 
