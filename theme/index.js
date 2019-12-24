@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
 
     var UI = require("ui");
-    console.log(module.uri.match(/^.+(_modules[^\/]+)\/.*/));
     var moduleId = module.uri.match(/^.+(_modules[^\/]+)\/.*/)[1];
+    console.log(moduleId);
 
     // register the theme: "hidden-header-theme"
     UI.registerTheme({
