@@ -1,5 +1,6 @@
 define(function(require, exports, module) {
+    const $ = require("jquery");
 
-    require("css!./theme.css");
+    $(.btn-header-help).hide();
 
 });
