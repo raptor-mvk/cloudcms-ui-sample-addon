@@ -39,7 +39,6 @@ define(function(require, exports, module) {
                         rows[i].update();
                         rows[i + 1].update();
                         $('.list-button-sort-field-sort_order').click();
-                        console.log($('select[name^="DataTables_Table_"]'));
                         $('select[name^="DataTables_Table_"]')[0].val("999999").trigger('change');
                         console.log('Moved down ' + rowId);
                     } else {
