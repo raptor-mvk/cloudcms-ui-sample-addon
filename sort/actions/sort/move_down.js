@@ -22,7 +22,10 @@ define(function(require, exports, module) {
                 alert('List should be sorted by sort order to use arrows');
                 return;
             }
-            console.log($('select[name=DataTables_Table_1_length]'));
+            if ($('select[name="DataTables_Table_1_length"]')[0].selectedOptions[0].value !== "999999") {
+                alert('Should display all items on page to use arrows');
+                return;
+            }
 
             let rows = actionContext.model.rows;
             let rowId = actionContext.selectedId;
