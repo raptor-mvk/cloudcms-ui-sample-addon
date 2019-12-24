@@ -40,6 +40,7 @@ define(function(require, exports, module) {
                         rows[i + 1].update();
                         $('.list-button-sort-field-sort_order').click();
                         let tableSelect = $('select[name^="DataTables_Table_"]')[0];
+                        console.log(typeof tableSelect);
                         tableSelect.selectedIndex = 4;
                         tableSelect.trigger('change');
                         console.log('Moved down ' + rowId);
