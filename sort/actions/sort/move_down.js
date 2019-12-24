@@ -22,7 +22,7 @@ define(function(require, exports, module) {
                 alert('List should be sorted by sort order to use arrows');
                 return;
             }
-            if ($('select[name="DataTables_Table_1_length"]')[0].selectedIndex !== 4) {
+            if ($('select[name^="DataTables_Table_"]')[0].selectedIndex !== 4) {
                 alert('Should display all items on page to use arrows');
                 return;
             }
@@ -39,7 +39,7 @@ define(function(require, exports, module) {
                         rows[i].update();
                         rows[i + 1].update();
                         $('.list-button-sort-field-sort_order').click();
-                        $('select[name="DataTables_Table_1_length"]')[0].selectedIndex = 4;
+                        $('select[name^="DataTables_Table_"]')[0].selectedIndex = 4;
                         console.log('Moved down ' + rowId);
                     } else {
                         alert ('Item is last already');
