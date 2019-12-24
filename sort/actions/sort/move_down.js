@@ -39,7 +39,7 @@ define(function(require, exports, module) {
                         rows[i].update();
                         rows[i + 1].update();
                         $('.list-button-sort-field-sort_order').click();
-                        $('select[name^="DataTables_Table_"]')[0].selectedIndex = 4;
+                        $('select[name^="DataTables_Table_"]')[0].val("999999").trigger('change');
                         console.log('Moved down ' + rowId);
                     } else {
                         alert ('Item is last already');
